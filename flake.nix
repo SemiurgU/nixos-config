@@ -1,0 +1,61 @@
+{
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable-small";
+
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    nvf.url = "github:notashelf/nvf";
+    nvf.inputs.nixpkgs.follows = "nixpkgs";
+
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    niri.url = "github:sodiboo/niri-flake";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
+
+    mango.url = "github:DreamMaoMao/mango";
+    mango.inputs.nixpkgs.follows = "nixpkgs";
+
+    hardware.url = "github:NixOS/nixos-hardware/master";
+
+    quickshell.url = "github:quickshell-mirror/quickshell";
+    quickshell.inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+  outputs = inputs @ {
+    self,
+    nixpkgs,
+    home-manager,
+    hardware,
+    ...
+  }: {
+    nixosConfigurations.framework = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = {inherit inputs;};
+      modules = [
+        ./hosts/framework/configuration.nix
+        inputs.disko.nixosModules.disko
+
+        hardware.nixosModules.framework-12th-gen-intel
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = {inherit inputs;};
+            users.mimir = ./users/mimir/home.nix;
+          };
+        }
+      ];
+    };
+    templates = {
+      default = self.templates.bevy;
+      bevy = {
+        path = ./templates/bevy/flake.nix;
+        description = "bevy template";
+      };
+    };
+  };
+}

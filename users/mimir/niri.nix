@@ -1,0 +1,230 @@
+{pkgs, ...}: {
+  programs.niri.settings = {
+    screenshot-path = "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
+    hotkey-overlay.hide-not-bound = true;
+    hotkey-overlay.skip-at-startup = true;
+    prefer-no-csd = true;
+
+    spawn-at-startup = [
+      {command = ["xwayland-satellite"];}
+      {command = ["nm-applet"];}
+    ];
+
+    binds = {
+      "Mod+Shift+Slash" = {
+        hotkey-overlay.title = "Show keybinds";
+        repeat = false;
+        action.show-hotkey-overlay = [];
+      };
+      "Mod+D" = {
+        hotkey-overlay.title = "Open launcher";
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "spotlight" "toggle"];
+      };
+      "Mod+T" = {
+        hotkey-overlay.title = "Open terminal";
+        repeat = false;
+        action.spawn = ["kitty"];
+      };
+      "Mod+E" = {
+        hotkey-overlay.title = "Open file manager";
+        repeat = false;
+        action.spawn = ["nautilus"];
+      };
+      "Mod+C" = {
+        hotkey-overlay.title = "Manage bluetooth";
+        repeat = false;
+        action.spawn = ["adw-bluetooth"];
+      };
+      "Mod+Shift+B" = {
+        hotkey-overlay.title = "Spawn btop";
+        repeat = false;
+        action.spawn = ["kitty" "btop"];
+      };
+      "Mod+Shift+E" = {
+        hotkey-overlay.title = "Exit Niri";
+        repeat = false;
+        action.quit.skip-confirmation = false;
+      };
+      "Mod+Shift+S" = {
+        hotkey-overlay.title = "Screenshot (region)";
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "niri" "screenshot"];
+      };
+      "Mod+Ctrl+S" = {
+        hotkey-overlay.title = "Screenshot (fullscreen)";
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "niri" "screenshotScreen"];
+      };
+      "Mod+Alt+S" = {
+        hotkey-overlay.title = "Screenshot (focused window)";
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "niri" "screenshotWindow"];
+      };
+      "Mod+O" = {
+        hotkey-overlay.title = "Overview";
+        repeat = false;
+        action.toggle-overview = [];
+      };
+      "Mod+Q" = {
+        hotkey-overlay.title = "Close focused window";
+        repeat = false;
+        action.close-window = [];
+      };
+      "Mod+Shift+F" = {
+        hotkey-overlay.title = "Fullscreen focused window";
+        action.fullscreen-window = [];
+      };
+      "Mod+L" = {
+        hotkey-overlay.title = "Lock sreen";
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "lock" "lock"];
+      };
+      "Mod+Shift+L" = {
+        hotkey-overlay.title = "Toggle sleep block";
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "inhibit" "toggle"];
+      };
+      "Mod+F" = {
+        hotkey-overlay.title = "Fullscreen window";
+        repeat = false;
+        action.expand-column-to-available-width = [];
+      };
+      "Mod+R" = {
+        hotkey-overlay.title = "Resize window";
+        action.switch-preset-column-width = [];
+      };
+      "Mod+V" = {
+        hotkey-overlay.title = "Toggle floating";
+        action.toggle-window-floating = [];
+      };
+
+      # focus window
+      "Mod+Left".action.focus-column-left = [];
+      "Mod+Right".action.focus-column-right = [];
+      "Mod+Down".action.focus-window-or-workspace-down = [];
+      "Mod+Up".action.focus-window-or-workspace-up = [];
+      # move window
+      "Mod+Ctrl+Left".action.move-column-left = [];
+      "Mod+Ctrl+Down".action.move-window-down-or-to-workspace-down = [];
+      "Mod+Ctrl+Up".action.move-window-up-or-to-workspace-up = [];
+      "Mod+Ctrl+Right".action.move-column-right = [];
+
+      # media keys
+      "XF86AudioPlay" = {
+        hotkey-overlay.title = "Pause audio";
+        allow-when-locked = true;
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "mpris" "playPause"];
+      };
+      "XF86AudioPrev" = {
+        hotkey-overlay.title = "Previous track";
+        allow-when-locked = true;
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "mpris" "previous"];
+      };
+      "XF86AudioNext" = {
+        hotkey-overlay.title = "Next track";
+        allow-when-locked = true;
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "mpris" "next"];
+      };
+      "XF86AudioLowerVolume" = {
+        hotkey-overlay.title = "Lower volume";
+        allow-when-locked = true;
+        action.spawn = ["dms" "ipc" "call" "audio" "decrement" "5"];
+      };
+      "XF86AudioRaiseVolume" = {
+        hotkey-overlay.title = "Raise volume";
+        allow-when-locked = true;
+        action.spawn = ["dms" "ipc" "call" "audio" "increment" "5"];
+      };
+      "XF86AudioMute" = {
+        hotkey-overlay.title = "Mute audio";
+        allow-when-locked = true;
+        action.spawn = ["dms" "ipc" "call" "audio" "mute"];
+      };
+      "XF86MonBrightnessUp" = {
+        hotkey-overlay.title = "Raise brightness";
+        action.spawn = ["dms" "ipc" "call" "brightness" "increment" "5" ""];
+      };
+      "XF86MonBrightnessDown" = {
+        hotkey-overlay.title = "Lower brightness";
+        action.spawn = ["dms" "ipc" "call" "brightness" "decrement" "5" ""];
+      };
+
+      # dms stuff
+      "Mod+Alt+M" = {
+        hotkey-overlay.title = "Toggle dms theme";
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "theme" "toggle"];
+      };
+      "Mod+Alt+N" = {
+        hotkey-overlay.title = "Open notepad";
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "notepad" "toggle"];
+      };
+      "Mod+Alt+V" = {
+        hotkey-overlay.title = "Open clipboard";
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "clipboard" "toggle"];
+      };
+      "Mod+Alt+P" = {
+        hotkey-overlay.title = "Open powermenu";
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "powermenu" "toggle"];
+      };
+      "Mod+Alt+B" = {
+        hotkey-overlay.title = "Toggle night mode";
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "night" "toggle"];
+      };
+      "Mod+Alt+Slash" = {
+        hotkey-overlay.title = "Show Keybinds";
+        repeat = false;
+        action.spawn = ["dms" "ipc" "call" "keybinds" "toggle" "niri"];
+      };
+    };
+    switch-events = {
+      lid-close.action.spawn = ["niri" "msg" "action" "power-off-monitors"];
+      lid-open.action.spawn = ["niri" "msg" "action" "power-on-monitors"];
+    };
+    layout = {
+      gaps = 4;
+      border.width = 4;
+      focus-ring.width = 2;
+      preset-column-widths = [
+        {proportion = 1. / 3.;}
+        {proportion = 1. / 2.;}
+        {proportion = 2. / 3.;}
+        {proportion = 1. / 1.;}
+      ];
+    };
+    window-rules = [
+      {
+        matches = [];
+
+        geometry-corner-radius = {
+          bottom-left = 5.0;
+          bottom-right = 5.0;
+          top-left = 5.0;
+          top-right = 5.0;
+        };
+
+        clip-to-geometry = true;
+        draw-border-with-background = false;
+      }
+    ];
+  };
+
+  home.packages = with pkgs; [
+    xwayland-satellite
+    kitty
+    nautilus
+    btop
+    kew
+    networkmanagerapplet
+    adw-bluetooth
+    qt6Packages.qt6ct
+  ];
+}
