@@ -2,6 +2,13 @@
   imports = [
     ./default.nix
   ];
+  services.mpd = {
+    enable = true;
+    musicDirectory = "/home/mimir/Music/";
+    # Optional:
+    network.listenAddress = "any"; # if you want to allow non-localhost connections
+    network.startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+  };
   programs = {
     git = {
       enable = true;
@@ -22,6 +29,7 @@
       include dank-theme.conf
         ";
     };
+    rmpc.enable = true;
     mpv = {
       enable = true;
       scripts = with pkgs; [
@@ -32,7 +40,9 @@
     };
     yazi = {
       enable = true;
+      extraPackages = [pkgs.exiftool];
     };
+    swayimg.enable = true;
   };
   gtk = {
     enable = true;
@@ -40,18 +50,18 @@
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
-    cursorTheme = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
-      size = 24;
-    };
+
+    gtk4.theme = null;
   };
 
   home.packages = with pkgs; [
     (pkgs.callPackage ./pkgs/surge.nix {})
+    localsend
     ripgrep
+    qbittorrent-enhanced
     prismlauncher
     bat
+    proton-vpn
     blockbench
     lazygit
     bibata-cursors
@@ -63,8 +73,19 @@
     networkmanagerapplet
     adw-bluetooth
     qt6Packages.qt6ct
+    papirus-icon-theme
+    hicolor-icon-theme
     vesktop
     telegram-desktop
+    #thumbnails
+    ffmpeg-headless
+    ffmpegthumbnailer
+    gdk-pixbuf
+    libheif.bin
+    libheif.out
+    libavif
+    libjxl
+    webp-pixbuf-loader
   ];
 
   home.stateVersion = "25.11";

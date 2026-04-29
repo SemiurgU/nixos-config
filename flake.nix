@@ -11,16 +11,16 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    niri.url = "github:sodiboo/niri-flake";
-    niri.inputs.nixpkgs.follows = "nixpkgs";
-
-    mango.url = "github:DreamMaoMao/mango";
-    mango.inputs.nixpkgs.follows = "nixpkgs";
+    niri-nix.url = "git+https://codeberg.org/BANanaD3V/niri-nix";
+    niri-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     hardware.url = "github:NixOS/nixos-hardware/master";
 
     quickshell.url = "github:quickshell-mirror/quickshell";
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
+
+    dms-plugins.url = "github:AvengeMedia/dms-plugin-registry";
+    dms-plugins.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {

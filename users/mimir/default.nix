@@ -2,9 +2,7 @@
   imports = [
     ./helix.nix
 
+    inputs.niri-nix.homeModules.default
     ./niri.nix
-
-    inputs.mango.hmModules.mango
-    ./mango.nix
   ];
 }
