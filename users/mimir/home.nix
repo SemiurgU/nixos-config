@@ -1,13 +1,13 @@
 {pkgs, ...}: {
   imports = [
+    ./theme.nix
     ./default.nix
   ];
   services.mpd = {
     enable = true;
     musicDirectory = "/home/mimir/Music/";
-    # Optional:
-    network.listenAddress = "any"; # if you want to allow non-localhost connections
-    network.startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+    network.listenAddress = "any";
+    network.startWhenNeeded = true;
   };
   programs = {
     git = {
@@ -44,18 +44,9 @@
     };
     swayimg.enable = true;
   };
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-
-    gtk4.theme = null;
-  };
 
   home.packages = with pkgs; [
-    (pkgs.callPackage ./pkgs/surge.nix {})
+    neovide
     localsend
     ripgrep
     qbittorrent-enhanced
@@ -72,12 +63,13 @@
     kew
     networkmanagerapplet
     adw-bluetooth
+    vulkan-tools
+
     qt6Packages.qt6ct
     papirus-icon-theme
     hicolor-icon-theme
     vesktop
     telegram-desktop
-    #thumbnails
     ffmpeg-headless
     ffmpegthumbnailer
     gdk-pixbuf

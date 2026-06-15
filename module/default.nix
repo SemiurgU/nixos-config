@@ -10,6 +10,10 @@
     ./dms.nix
 
     ./steam.nix
+
+    ./kde.nix
+
+    ./gnome.nix
   ];
 
   programs.nh = {
@@ -22,11 +26,6 @@
   environment.systemPackages = [
     pkgs.kdePackages.kimageformats
   ];
-
-  environment.sessionVariables = {
-    QT_QPA_PLATFORMTHEME = "qt6ct";
-    QT_QPA_PLATFORM = "wayland";
-  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code

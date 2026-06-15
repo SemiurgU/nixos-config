@@ -18,6 +18,8 @@
           pkgs.rust-analyzer
           pkgs.cargo
           pkgs.rustc
+          pkgs.lua
+          pkgs.fd
         ];
 
         options = {
@@ -84,21 +86,29 @@
           enableTreesitter = true;
           enableExtraDiagnostics = true;
 
-          nix = {
-            enable = true;
-            lsp.servers = ["nixd" "nil"];
-          };
-          markdown = {
-            enable = true;
-            extensions.render-markdown-nvim.enable = true;
-          };
+          nix.enable = true;
+          nix.lsp.servers = [
+            "nixd"
+            "nil"
+          ];
+
+          markdown.enable = true;
+          markdown.extensions.render-markdown-nvim.enable = true;
+
           typst.enable = true;
           json.enable = true;
           yaml.enable = true;
           java.enable = true;
           clang.enable = true;
           clang.dap.enable = true;
-          qml.enable = true;
+
+          #QML
+          qml = {
+            enable = true;
+            format.enable = true;
+            lsp.enable = true;
+            treesitter.enable = true;
+          };
           lua.enable = true;
           lua.extraDiagnostics.enable = true;
           go.enable = true;
@@ -106,27 +116,12 @@
           rust.enable = true;
           rust.extensions.crates-nvim.enable = true;
         };
+
         theme = {
           enable = true;
-          name = "base16";
-          base16-colors = {
-            base00 = "#152326"; # Background
-            base01 = "#1c2b2e"; # Lighter Background
-            base02 = "#263338"; # Selection Background
-            base03 = "#3b4b52"; # Comments/Invisibles
-            base04 = "#70848f"; # Dark Foreground
-            base05 = "#91a4ad"; # Default Foreground
-            base06 = "#a7b8c2"; # Light Foreground
-            base07 = "#c2d1d9"; # Lightest Foreground
-            base08 = "#ff5b61"; # Variables/Red
-            base09 = "#ffcf99"; # Integers/Orange
-            base0A = "#fdd9af"; # Classes/Yellow
-            base0B = "#9dc6a9"; # Strings/Green
-            base0C = "#f9ada1"; # Support/Cyan
-            base0D = "#86bfd2"; # Functions/Blue
-            base0E = "#d59cce"; # Keywords/Purple
-            base0F = "#d48588"; # Deprecated/Brown
-          };
+          name = "tokyonight";
+          style = "storm";
+          transparent = true;
         };
         keymaps = [
           {
