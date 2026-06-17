@@ -18,9 +18,6 @@
 
     quickshell.url = "github:quickshell-mirror/quickshell";
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
-
-    dms-plugins.url = "github:AvengeMedia/dms-plugin-registry";
-    dms-plugins.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {
@@ -49,13 +46,6 @@
           };
         }
       ];
-    };
-    templates = {
-      default = self.templates.bevy;
-      bevy = {
-        path = ./templates/bevy/flake.nix;
-        description = "bevy template";
-      };
     };
   };
 }

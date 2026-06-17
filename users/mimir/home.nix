@@ -3,12 +3,6 @@
     ./theme.nix
     ./default.nix
   ];
-  services.mpd = {
-    enable = true;
-    musicDirectory = "/home/mimir/Music/";
-    network.listenAddress = "any";
-    network.startWhenNeeded = true;
-  };
   programs = {
     git = {
       enable = true;
@@ -29,7 +23,6 @@
       include dank-theme.conf
         ";
     };
-    rmpc.enable = true;
     mpv = {
       enable = true;
       scripts = with pkgs; [
@@ -46,7 +39,6 @@
   };
 
   home.packages = with pkgs; [
-    neovide
     localsend
     ripgrep
     qbittorrent-enhanced
@@ -62,14 +54,13 @@
     btop
     kew
     networkmanagerapplet
-    adw-bluetooth
-    vulkan-tools
 
     qt6Packages.qt6ct
     papirus-icon-theme
     hicolor-icon-theme
     vesktop
     telegram-desktop
+
     ffmpeg-headless
     ffmpegthumbnailer
     gdk-pixbuf

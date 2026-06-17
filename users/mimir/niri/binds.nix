@@ -41,7 +41,6 @@ in {
     "XF86AudioRaiseVolume" = volumeKey ["audio" "increment" "5"];
     "XF86AudioMute" = volumeKey ["audio" "mute"];
 
-    "XF86AudioMedia".spawn = ["${pkgs.sox}/bin/play" "/home/mimir/Downloads/linux.mp3"];
     #-----------
 
     #---Screen--

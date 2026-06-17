@@ -1,5 +1,5 @@
 {
-  wayland.windowManager.niri = {
+  wayland.windowManager.niri.settings = {
     environment = {
       QT_QPA_PLATFORMTHEME = "kvantum";
       QT_STYLE_OVERRIDE = "kvantum";

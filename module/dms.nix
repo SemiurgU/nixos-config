@@ -3,9 +3,6 @@
   pkgs,
   ...
 }: {
-  imports = [
-    inputs.dms-plugins.modules.default
-  ];
   programs.dms-shell = {
     enable = true;
     systemd.enable = true;
@@ -15,7 +12,5 @@
     enableDynamicTheming = true;
     enableSystemMonitoring = true;
     enableVPN = true;
-
-    plugins.dankKDEConnect.enable = true;
   };
 }
