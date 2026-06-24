@@ -43,6 +43,8 @@
           };
         };
         binds.whichKey.enable = true;
+        statusline.lualine.enable = true;
+
         visuals = {
           fidget-nvim.enable = true;
           highlight-undo.enable = true;
@@ -102,13 +104,11 @@
           clang.enable = true;
           clang.dap.enable = true;
 
-          #QML
-          qml = {
-            enable = true;
-            format.enable = true;
-            lsp.enable = true;
-            treesitter.enable = true;
-          };
+          qml.enable = true;
+          qml.format.enable = true;
+          qml.lsp.enable = true;
+          qml.treesitter.enable = true;
+
           lua.enable = true;
           lua.extraDiagnostics.enable = true;
           go.enable = true;
@@ -119,8 +119,8 @@
 
         theme = {
           enable = true;
-          name = "tokyonight";
-          style = "storm";
+          name = "everforest";
+          style = "hard";
           transparent = true;
         };
         keymaps = [

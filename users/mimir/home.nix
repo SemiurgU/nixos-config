@@ -39,6 +39,7 @@
   };
 
   home.packages = with pkgs; [
+    gh
     localsend
     ripgrep
     qbittorrent-enhanced
