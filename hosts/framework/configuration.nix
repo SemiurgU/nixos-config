@@ -56,8 +56,6 @@
       interval = "monthly";
     };
 
-    system76-scheduler.enable = true;
-    system76-scheduler.useStockConfig = true;
     thermald.enable = true;
     xserver = {
       enable = true;

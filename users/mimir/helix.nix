@@ -13,7 +13,7 @@
     ];
 
     settings = {
-      theme = "gruvbox-material";
+      theme = "everforest_dark";
       editor = {
         color-modes = true;
         preview-completion-insert = true;
