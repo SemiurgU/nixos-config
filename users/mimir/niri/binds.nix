@@ -23,7 +23,7 @@
 in {
   wayland.windowManager.niri.settings.binds = {
     #----DMS----
-    "Mod+D" = dmsKey ["spotlight" "toggle"];
+    "Mod+Space" = dmsKey ["spotlight" "toggle"];
     "Mod+Alt+L" = dmsKey ["inhibit" "toggle"];
     "Mod+Shift+S" = dmsKey ["niri" "screenshot"];
     "Mod+Alt+M" = dmsKey ["theme" "toggle"];
@@ -80,6 +80,9 @@ in {
     "Mod+Ctrl+J".move-window-down-or-to-workspace-down = [];
     "Mod+Ctrl+K".move-window-up-or-to-workspace-up = [];
     "Mod+Ctrl+L".move-column-right = [];
+
+    "Mod+Comma".consume-or-expel-window-right = [];
+    "Mod+Period".consume-or-expel-window-left = [];
 
     #---Misc----
     "Mod+Return".spawn = exec pkgs.kitty;
