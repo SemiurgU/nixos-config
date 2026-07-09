@@ -39,6 +39,7 @@
   };
 
   home.packages = with pkgs; [
+    drawy
     gh
     localsend
     ripgrep
@@ -46,7 +47,6 @@
     prismlauncher
     bat
     proton-vpn
-    blockbench
     lazygit
     bibata-cursors
     xwayland-satellite

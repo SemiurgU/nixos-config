@@ -32,6 +32,7 @@
     fw-fanctrl.enable = true;
     bluetooth.enable = true;
     bluetooth.powerOnBoot = false;
+    sensor.iio.enable = true;
   };
 
   programs = {
