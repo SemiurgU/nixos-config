@@ -5,5 +5,7 @@
     inputs.niri-nix.homeModules.default
 
     ./niri
+
+    ./mangowm.nix
   ];
 }

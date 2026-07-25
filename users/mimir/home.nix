@@ -36,10 +36,13 @@
       extraPackages = [pkgs.exiftool];
     };
     swayimg.enable = true;
+    lutris.enable = true;
   };
 
   home.packages = with pkgs; [
     drawy
+    amberol
+    piper
     gh
     localsend
     ripgrep
@@ -56,7 +59,6 @@
     kew
     networkmanagerapplet
 
-    qt6Packages.qt6ct
     papirus-icon-theme
     hicolor-icon-theme
     vesktop

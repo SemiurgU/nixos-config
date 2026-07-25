@@ -14,13 +14,15 @@
     ./kde.nix
 
     ./gnome.nix
+
+    ./mangowm.nix
   ];
 
   programs.nh = {
     enable = true;
     flake = "/home/mimir/.config/nixos";
   };
-
+  services.nix-serve.enable = true;
   environment.systemPackages = [
     pkgs.kdePackages.kimageformats
   ];

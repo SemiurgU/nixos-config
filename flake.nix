@@ -26,9 +26,11 @@
     home-manager,
     hardware,
     ...
-  }: {
+  }: let
+    system = "x86_64-linux";
+  in {
     nixosConfigurations.framework = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
       specialArgs = {inherit inputs;};
       modules = [
         ./hosts/framework/configuration.nix

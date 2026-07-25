@@ -45,22 +45,4 @@
     cursor-theme = "Bibata-Modern-Ice";
     cursor-size = 24;
   };
-
-  #Qt / Kvantum
-
-  qt = {
-    enable = true;
-    platformTheme.name = "kvantum";
-    style.name = "kvantum";
-  };
-
-  home.packages = with pkgs; [
-    libsForQt5.qtstyleplugin-kvantum
-    qt6Packages.qtstyleplugin-kvantum
-  ];
-
-  xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
-    [General]
-    theme=KvAdwaitaDark
-  '';
 }

@@ -76,10 +76,41 @@
           grammars = pkgs.vimPlugins.nvim-treesitter.allGrammars;
         };
 
+        formatter = {
+          conform-nvim = {
+            enable = true;
+            presets = {
+              alejandra.enable = true;
+              rustfmt.enable = true;
+              stylua.enable = true;
+            };
+            setupOpts.formatters.stylua.args = pkgs.lib.mkForce (pkgs.lib.generators.mkLuaInline ''
+                            function(self, ctx)
+                local style = vim.bo[ctx.buf].expandtab and "Spaces" or "Tabs"
+                local sw = vim.bo[ctx.buf].shiftwidth
+                if sw == 0 then
+                  sw = vim.bo[ctx.buf].tabstop
+                end
+                return {
+                  "--search-parent-directories",
+                  "--respect-ignores",
+                  "--indent-width",
+                  sw,
+                  "--indent-type",
+                  style,
+                  "--stdin-filepath",
+                  "$FILENAME",
+                  "-",
+                }
+              end
+            '');
+          };
+        };
+
         lsp = {
           enable = true;
-          inlayHints.enable = true;
           formatOnSave = true;
+          inlayHints.enable = true;
           otter-nvim.enable = true;
         };
 
@@ -97,22 +128,9 @@
           markdown.enable = true;
           markdown.extensions.render-markdown-nvim.enable = true;
 
-          typst.enable = true;
-          json.enable = true;
-          yaml.enable = true;
-          java.enable = true;
-          clang.enable = true;
-          clang.dap.enable = true;
-
-          qml.enable = true;
-          qml.format.enable = true;
-          qml.lsp.enable = true;
-          qml.treesitter.enable = true;
-
           lua.enable = true;
           lua.extraDiagnostics.enable = true;
-          go.enable = true;
-          go.dap.enable = true;
+
           rust.enable = true;
           rust.extensions.crates-nvim.enable = true;
         };

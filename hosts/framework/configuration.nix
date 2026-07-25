@@ -50,7 +50,7 @@
   services = {
     upower.enable = true;
     power-profiles-daemon.enable = true;
-
+    framework-control.enable = true;
     btrfs.autoScrub = {
       enable = true;
       fileSystems = ["/"];
@@ -92,6 +92,7 @@
     };
 
     libinput.enable = true;
+    ratbagd.enable = true;
 
     openssh.enable = true;
     tailscale.enable = true;
