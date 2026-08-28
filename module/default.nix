@@ -11,11 +11,15 @@
 
     ./steam.nix
 
+    ./cosmic.nix
+
     ./kde.nix
 
     ./gnome.nix
 
     ./mangowm.nix
+
+    ./hyprland.nix
   ];
 
   programs.nh = {

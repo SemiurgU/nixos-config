@@ -1,7 +1,7 @@
 {
   wayland.windowManager.niri.settings = {
     layout = {
-      gaps = 2;
+      gaps = 4;
       border.width = 1;
       focus-ring.width = 1;
       preset-column-widths._children = [

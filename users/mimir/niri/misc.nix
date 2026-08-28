@@ -8,6 +8,12 @@
     prefer-no-csd = true;
 
     input = {
+      keyboard.xkb = {
+        layout = "gb,ua";
+        variant = ",phonetic";
+        options = "grp:alt_shift_toggle";
+      };
+
       touchpad = {
         tap = [];
         natural-scroll = [];

@@ -4,28 +4,28 @@
   fetchFromGitHub,
   pkg-config,
 }: let
-  pname = "oniri";
-  version = "1.3.1";
+  pname = "niri-sidebar";
+  version = "0.4.0";
 in
   rustPlatform.buildRustPackage {
     inherit pname version;
 
     src = fetchFromGitHub {
-      owner = "Antiz96";
+      owner = "Vigintillionn";
       repo = pname;
       rev = "v${version}";
-      hash = "sha256-XQyzoQ/s6ROj+GKwpZM2rZHl9niE/6IWBcE2lgJ8KR8=";
+      hash = "sha256-MYP1ZiwV9+yJhl0zpuri6NQkQHlaYZjGBhXpZEaPZyI=";
     };
 
-    cargoHash = "sha256-mDS5kyBYjzn31gekqrH8zm2fLzBSFDXODxjGqszoWcE=";
+    cargoHash = "sha256-zZlfwAxWE1ZZy6k7QoBOamCGigGShd89sD27vfvgR00=";
 
     nativeBuildInputs = [
       pkg-config
     ];
 
     meta = {
-      description = "A tool that automatically maximizes the only window of a niri workspace";
-      homepage = "https://github.com/Antiz96/oniri";
+      description = "A lightweight, external sidebar manager for the Niri window manager";
+      homepage = "https://github.com/Vigintillionn/niri-sidebar";
       license = lib.licenses.gpl3Only;
       mainProgram = pname;
       platforms = lib.platforms.linux;

@@ -1,15 +1,41 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./hardware-configuration.nix
     ./disko-framework.nix
     ../../module
+    inputs.win98se-plymouth.nixosModules.default
+    inputs.nix-index-database.nixosModules.default
   ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
+    trusted-users = ["root" "mimir"];
+  };
+
   boot = {
+    plymouth = {
+      enable = true;
+      win98se.label.mode = "none";
+    };
+
+    # Enable "Silent boot"
+    consoleLogLevel = 3;
+    initrd = {
+      kernelModules = ["i915"];
+      verbose = false;
+    };
+
+    # Hide the OS choice for bootloaders.
+    # It's still possible to open the bootloader list by pressing any key
+    # It will just not appear on screen unless a key is pressed
+    loader.timeout = 0;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -17,7 +43,21 @@
     tmp.cleanOnBoot = true;
     tmp.useTmpfs = true;
     kernelPackages = pkgs.linuxPackages_latest;
+    kernelParams = [
+      "mem_sleep_default=deep"
+      "quiet"
+      "rd.udev.log_level=3"
+      "rd.systemd.show_status=auto"
+    ];
+
+    kernel.sysctl."vm.swappiness" = 1;
   };
+
+  systemd.services.display-manager = {
+    after = ["plymouth-quit-wait.service"];
+    wants = ["plymouth-quit-wait.service"];
+  };
+
   virtualisation.libvirtd.enable = true;
   security.rtkit.enable = true;
   hardware = {
@@ -38,19 +78,22 @@
   programs = {
     appimage.enable = true;
     appimage.binfmt = true;
-    gamemode.enable = true;
-    gamemode.enableRenice = true;
     niri = {
       enable = true;
       package = pkgs.niri;
     };
     firefox.enable = true;
     virt-manager.enable = true;
+    kdeconnect.enable = true;
+    nix-index-database.comma.enable = true;
+    nix-index.package = inputs.nix-index-database.packages.${pkgs.stdenv.hostPlatform.system}.nix-index-with-small-db;
   };
   services = {
     upower.enable = true;
     power-profiles-daemon.enable = true;
     framework-control.enable = true;
+
+    fwupd.enable = true;
     btrfs.autoScrub = {
       enable = true;
       fileSystems = ["/"];
@@ -58,15 +101,6 @@
     };
 
     thermald.enable = true;
-    xserver = {
-      enable = true;
-      xkb = {
-        layout = "gb,ua";
-        variant = ",phonetic";
-        options = "grp:alt_shift_toggle";
-      };
-      excludePackages = [pkgs.xterm];
-    };
 
     displayManager.dms-greeter = {
       enable = true;
@@ -83,7 +117,6 @@
     };
 
     gvfs.enable = true;
-    printing.enable = true;
 
     pipewire = {
       enable = true;
@@ -99,7 +132,10 @@
     flatpak.enable = true;
   };
 
-  zramSwap.enable = true;
+  zramSwap = {
+    enable = true;
+    memoryPercent = 25;
+  };
   powerManagement.powertop.enable = true;
   networking = {
     hostName = "framework";
@@ -111,7 +147,6 @@
 
   environment.systemPackages = [
     pkgs.qemu
-    pkgs.quickemu
     pkgs.btrfs-assistant
   ];
 

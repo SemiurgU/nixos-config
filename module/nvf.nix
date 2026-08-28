@@ -29,7 +29,10 @@
           expandtab = true;
           autoindent = true;
         };
+
+        git.enable = true;
         telescope.enable = true;
+        notify.nvim-notify.enable = true;
         terminal.toggleterm = {
           enable = true;
           mappings.open = "tt";
@@ -48,6 +51,7 @@
         visuals = {
           fidget-nvim.enable = true;
           highlight-undo.enable = true;
+          rainbow-delimiters.enable = true;
         };
         mini = {
           animate.enable = true;
@@ -57,6 +61,8 @@
           cursorword.enable = true;
           icons.enable = true;
           pairs.enable = true;
+          ai.enable = true;
+          splitjoin.enable = true;
         };
         utility = {
           oil-nvim = {
@@ -66,6 +72,7 @@
           nix-develop.enable = true;
           direnv.enable = true;
           undotree.enable = true;
+          smart-splits.enable = true;
         };
 
         treesitter = {
@@ -76,42 +83,15 @@
           grammars = pkgs.vimPlugins.nvim-treesitter.allGrammars;
         };
 
-        formatter = {
-          conform-nvim = {
-            enable = true;
-            presets = {
-              alejandra.enable = true;
-              rustfmt.enable = true;
-              stylua.enable = true;
-            };
-            setupOpts.formatters.stylua.args = pkgs.lib.mkForce (pkgs.lib.generators.mkLuaInline ''
-                            function(self, ctx)
-                local style = vim.bo[ctx.buf].expandtab and "Spaces" or "Tabs"
-                local sw = vim.bo[ctx.buf].shiftwidth
-                if sw == 0 then
-                  sw = vim.bo[ctx.buf].tabstop
-                end
-                return {
-                  "--search-parent-directories",
-                  "--respect-ignores",
-                  "--indent-width",
-                  sw,
-                  "--indent-type",
-                  style,
-                  "--stdin-filepath",
-                  "$FILENAME",
-                  "-",
-                }
-              end
-            '');
-          };
-        };
+        formatter.conform-nvim.enable = true;
 
         lsp = {
           enable = true;
           formatOnSave = true;
           inlayHints.enable = true;
           otter-nvim.enable = true;
+          lightbulb.enable = true;
+          trouble.enable = true;
         };
 
         languages = {

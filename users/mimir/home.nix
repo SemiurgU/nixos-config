@@ -41,37 +41,21 @@
 
   home.packages = with pkgs; [
     drawy
+    pear-desktop
     amberol
     piper
     gh
-    localsend
     ripgrep
     qbittorrent-enhanced
     prismlauncher
-    bat
     proton-vpn
     lazygit
-    bibata-cursors
-    xwayland-satellite
     kitty
     nautilus
-    btop
-    kew
     networkmanagerapplet
-
-    papirus-icon-theme
-    hicolor-icon-theme
     vesktop
     telegram-desktop
-
-    ffmpeg-headless
-    ffmpegthumbnailer
-    gdk-pixbuf
-    libheif.bin
-    libheif.out
-    libavif
-    libjxl
-    webp-pixbuf-loader
+    krita
   ];
 
   home.stateVersion = "25.11";

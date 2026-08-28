@@ -25,13 +25,13 @@ in {
     #----DMS----
     "Mod+Space" = dmsKey ["spotlight" "toggle"];
     "Mod+Alt+Space" = dmsKey ["spotlight-bar" "toggle"];
-    "Mod+Alt+L" = dmsKey ["inhibit" "toggle"];
+    "Mod+Alt+I" = dmsKey ["inhibit" "toggle"];
     "Mod+Shift+S" = dmsKey ["niri" "screenshot"];
     "Mod+Alt+M" = dmsKey ["theme" "toggle"];
     "Mod+Alt+N" = dmsKey ["notepad" "toggle"];
     "Mod+Alt+V" = dmsKey ["clipboard" "toggle"];
     "Mod+Alt+P" = dmsKey ["powermenu" "toggle"];
-    "Mod+Alt+B" = dmsKey ["night" "toggle"];
+    "Mod+Alt+B" = dmsKey ["bar" "toggle" "index" "0"];
     "Mod+P" = dmsKey ["powerprofile" "toggle"];
     #-----------
 
@@ -86,10 +86,14 @@ in {
     "Mod+Comma".consume-or-expel-window-left = [];
     "Mod+Period".consume-or-expel-window-right = [];
 
+    #Niri-sidebar
+    "Mod+S".spawn = ["niri-sidebar" "toggle-window"];
+    "Mod+Alt+S".spawn = ["niri-sidebar" "toggle-visibility"];
     #---Misc----
     "Mod+Return".spawn = exec pkgs.kitty;
     "Mod+Alt+T".spawn = exec pkgs.kitty ++ exec pkgs.btop;
     "Mod+E".spawn = exec pkgs.nautilus;
     "Mod+Z".spawn = exec pkgs.wooz ++ ["--mouse-track"];
+    "Mod+W".toggle-window-floating = [];
   };
 }

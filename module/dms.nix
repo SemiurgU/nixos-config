@@ -1,8 +1,6 @@
-{
-  inputs,
-  pkgs,
-  ...
-}: {
+{inputs, ...}: {
+  programs.dsearch.enable = true;
+  programs.dsearch.systemd.enable = true;
   programs.dms-shell = {
     enable = true;
     systemd.enable = true;

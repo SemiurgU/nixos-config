@@ -5,24 +5,16 @@
     ./env.nix
     ./layout.nix
     ./rules.nix
+    ./niri-dms.nix
   ];
 
   wayland.windowManager.niri = {
     enable = true;
     settings = {
-      spawn-at-startup = [
-        ["xwayland-satellite"]
-        ["${pkgs.callPackage ./custom_pkgs/oniri.nix {}}/bin/oniri" "-T" "-R"]
-      ];
-
-      include = [
-        ["/home/mimir/.config/niri/dms/colors.kdl"]
-        ["/home/mimir/.config/niri/dms/alttab.kdl"]
-        ["/home/mimir/.config/niri/dms/cursor.kdl"]
-        ["/home/mimir/.config/niri/dms/wpblur.kdl"]
-        ["/home/mimir/.config/niri/dms/outputs.kdl"]
-        ["/home/mimir/.config/niri/dms/layout.kdl"]
-        ["/home/mimir/.config/niri/dms/windowrules.kdl"]
+      _children = [
+        {spawn-at-startup._args = ["xwayland-satellite"];}
+        {spawn-at-startup._args = ["oniri" "-T" "-R"];}
+        {spawn-at-startup._args = ["niri-sidebar" "listen"];}
       ];
     };
   };
@@ -34,5 +26,7 @@
     btop
     kew
     wooz
+    (pkgs.callPackage ./custom_pkgs/oniri.nix {})
+    (pkgs.callPackage ./custom_pkgs/niri-sidebar.nix {})
   ];
 }
