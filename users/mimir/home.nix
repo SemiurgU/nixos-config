@@ -50,8 +50,6 @@
     prismlauncher
     proton-vpn
     lazygit
-    kitty
-    nautilus
     networkmanagerapplet
     vesktop
     telegram-desktop

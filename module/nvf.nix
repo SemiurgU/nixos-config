@@ -102,7 +102,6 @@
           nix.enable = true;
           nix.lsp.servers = [
             "nixd"
-            "nil"
           ];
 
           markdown.enable = true;

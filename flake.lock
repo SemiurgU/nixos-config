@@ -90,40 +90,20 @@
         "type": "github"
       }
     },
-    "niri-nix": {
+    "niri-git": {
       "inputs": {
-        "niri-unstable": "niri-unstable",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "xwayland-satellite-unstable": "xwayland-satellite-unstable"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1784938247,
-        "narHash": "sha256-yO+L8iSAjvDA6gm+9Jmr+pLt9FkGU5j5mT1DdFpz9Wk=",
-        "ref": "refs/heads/main",
-        "rev": "baa586fdd74462f853e478cd3f2c60c57cbd08ae",
-        "revCount": 147,
-        "type": "git",
-        "url": "https://codeberg.org/BANanaD3V/niri-nix"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://codeberg.org/BANanaD3V/niri-nix"
-      }
-    },
-    "niri-unstable": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1784570726,
-        "narHash": "sha256-9EMn69JBcFWFgUM7f0VBAX+jBby5b9H3M59U75+5yI4=",
-        "owner": "YaLTeR",
+        "lastModified": 1787337984,
+        "narHash": "sha256-BNZUEVR2H96hCKENNKoLSSTFT8W4smp7v94hJc4Ehfc=",
+        "owner": "niri-wm",
         "repo": "niri",
-        "rev": "7f26c3ee804fb6ed458ef7fb0e3c794f14e0b3bc",
+        "rev": "dd75865f547f0eac0e9b6c4d86d2cd00c0744252",
         "type": "github"
       },
       "original": {
-        "owner": "YaLTeR",
+        "owner": "niri-wm",
         "repo": "niri",
         "type": "github"
       }
@@ -163,6 +143,22 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1785110946,
+        "narHash": "sha256-WWuWxmXKzGZWryswWlijP3Mjp6aGy4Ngmeil5nGMMjk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "d3498f786f97ac0bded21b34bae0bf3809b45aa3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1784796856,
         "narHash": "sha256-wWFrV5/Qbm+lyt5x20E/bSbfJiGKMo4RCxZV8cl/WZI=",
         "owner": "NixOS",
@@ -177,7 +173,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1786862985,
         "narHash": "sha256-FBJRXmbGXiSUDvYEbfLYRkckayyZ6SK1UEqhCrIZ2Cs=",
@@ -240,9 +236,9 @@
         "disko": "disko",
         "hardware": "hardware",
         "home-manager": "home-manager",
-        "niri-nix": "niri-nix",
+        "niri-git": "niri-git",
         "nix-index-database": "nix-index-database",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs_3",
         "nvf": "nvf",
         "quickshell": "quickshell",
         "win98se-plymouth": "win98se-plymouth"
@@ -250,7 +246,7 @@
     },
     "win98se-plymouth": {
       "inputs": {
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_4"
       },
       "locked": {
         "lastModified": 1786831690,
@@ -263,22 +259,6 @@
       "original": {
         "owner": "nilp0inter",
         "repo": "plymouth-theme-win98se-inspired-nixos-theme",
-        "type": "github"
-      }
-    },
-    "xwayland-satellite-unstable": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1784679892,
-        "narHash": "sha256-Mb7jpqnrcYCfNSItIkkHpuR3YxWFxPuIBfcwNKlRBkk=",
-        "owner": "Supreeeme",
-        "repo": "xwayland-satellite",
-        "rev": "8d135d3b2854b30fd01ea6cd6c27e523dd50a839",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Supreeeme",
-        "repo": "xwayland-satellite",
         "type": "github"
       }
     }

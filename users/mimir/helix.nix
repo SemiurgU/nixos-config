@@ -4,7 +4,6 @@
     extraPackages = with pkgs; [
       rust-analyzer
       nixd
-      nil
       bash-language-server
       shellcheck
       shfmt

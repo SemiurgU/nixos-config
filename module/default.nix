@@ -1,32 +1,21 @@
 {
   inputs,
+  user,
   pkgs,
   ...
 }: {
   imports = [
     inputs.nvf.nixosModules.default
     ./nvf.nix
-
     ./dms.nix
-
     ./steam.nix
-
-    ./cosmic.nix
-
-    ./kde.nix
-
-    ./gnome.nix
-
-    ./mangowm.nix
-
-    ./hyprland.nix
+    ./unused.nix
   ];
 
   programs.nh = {
     enable = true;
-    flake = "/home/mimir/.config/nixos";
+    flake = user.flakePath;
   };
-  services.nix-serve.enable = true;
   environment.systemPackages = [
     pkgs.kdePackages.kimageformats
   ];

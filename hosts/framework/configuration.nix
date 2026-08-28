@@ -1,5 +1,6 @@
 {
   inputs,
+  user,
   pkgs,
   ...
 }: {
@@ -16,7 +17,7 @@
       "nix-command"
       "flakes"
     ];
-    trusted-users = ["root" "mimir"];
+    trusted-users = ["root" user.username];
   };
 
   boot = {
@@ -25,16 +26,12 @@
       win98se.label.mode = "none";
     };
 
-    # Enable "Silent boot"
     consoleLogLevel = 3;
     initrd = {
       kernelModules = ["i915"];
       verbose = false;
     };
 
-    # Hide the OS choice for bootloaders.
-    # It's still possible to open the bootloader list by pressing any key
-    # It will just not appear on screen unless a key is pressed
     loader.timeout = 0;
     loader = {
       systemd-boot.enable = true;
@@ -80,7 +77,7 @@
     appimage.binfmt = true;
     niri = {
       enable = true;
-      package = pkgs.niri;
+      package = inputs.niri-git.packages.${pkgs.stdenv.hostPlatform.system}.default;
     };
     firefox.enable = true;
     virt-manager.enable = true;
@@ -108,7 +105,7 @@
         name = "niri";
       };
 
-      configHome = "/home/mimir";
+      configHome = "/home/${user.username}";
 
       logs = {
         save = true;
@@ -150,7 +147,7 @@
     pkgs.btrfs-assistant
   ];
 
-  users.users.mimir = {
+  users.users.${user.username} = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
