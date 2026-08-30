@@ -26,6 +26,7 @@
     mpv = {
       enable = true;
       scripts = with pkgs; [
+        mpvScripts.webtorrent-mpv-hook
         mpvScripts.thumbfast
         mpvScripts.mpris
         mpvScripts.sponsorblock
@@ -47,7 +48,6 @@
     gh
     ripgrep
     qbittorrent-enhanced
-    prismlauncher
     proton-vpn
     lazygit
     networkmanagerapplet

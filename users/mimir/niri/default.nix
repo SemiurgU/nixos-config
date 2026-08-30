@@ -14,7 +14,6 @@
       _children = [
         {spawn-at-startup._args = ["xwayland-satellite"];}
         {spawn-at-startup._args = ["oniri" "-T" "-R"];}
-        {spawn-at-startup._args = ["niri-sidebar" "listen"];}
       ];
     };
   };
@@ -27,6 +26,5 @@
     kew
     wooz
     (pkgs.callPackage ./custom_pkgs/oniri.nix {})
-    (pkgs.callPackage ./custom_pkgs/niri-sidebar.nix {})
   ];
 }

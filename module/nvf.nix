@@ -41,9 +41,8 @@
 
         ui = {
           colorful-menu-nvim.enable = true;
-          colorizer = {
-            enable = true;
-          };
+          colorizer.enable = true;
+          dropbar-nvim.enable = true;
         };
         binds.whichKey.enable = true;
         statusline.lualine.enable = true;
@@ -68,6 +67,15 @@
           oil-nvim = {
             enable = true;
             gitStatus.enable = true;
+            setupOpts = {
+              columns = [
+                "icon"
+                "permissions"
+                "size"
+                "mtime"
+              ];
+              delete_to_trash = true;
+            };
           };
           nix-develop.enable = true;
           direnv.enable = true;
@@ -79,7 +87,6 @@
           enable = true;
           addDefaultGrammars = true;
           autotagHtml = true;
-          context.enable = true;
           grammars = pkgs.vimPlugins.nvim-treesitter.allGrammars;
         };
 

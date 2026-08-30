@@ -87,13 +87,18 @@ in {
     "Mod+Period".consume-or-expel-window-right = [];
 
     #Niri-sidebar
-    "Mod+S".spawn = ["niri-sidebar" "toggle-window"];
-    "Mod+Alt+S".spawn = ["niri-sidebar" "toggle-visibility"];
+    "Mod+S".spawn = exec pkgs.niri-sidebar ++ ["toggle-window"];
+    "Mod+Alt+S".spawn = exec pkgs.niri-sidebar ++ ["toggle-visibility"];
+    "Mod+Alt+F".spawn = exec pkgs.niri-sidebar ++ ["flip"];
+    "Mod+Alt+R".spawn = exec pkgs.niri-sidebar ++ ["reorder"];
+
     #---Misc----
     "Mod+Return".spawn = exec pkgs.kitty;
     "Mod+Alt+T".spawn = exec pkgs.kitty ++ exec pkgs.btop;
     "Mod+E".spawn = exec pkgs.nautilus;
     "Mod+Z".spawn = exec pkgs.wooz ++ ["--mouse-track"];
     "Mod+W".toggle-window-floating = [];
+
+    "Mod+G".spawn = exec pkgs.wl-freeze ++ ["-a"];
   };
 }
