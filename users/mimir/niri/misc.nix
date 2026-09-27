@@ -19,6 +19,11 @@
         natural-scroll = [];
       };
     };
+    cursor = {
+      xcursor-theme = "Bibata-Modern-Ice";
+      xcursor-size = 24;
+      hide-when-typing = {};
+    };
 
     switch-events = {
       lid-close.spawn = ["niri" "msg" "action" "power-off-monitors"];

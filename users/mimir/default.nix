@@ -3,7 +3,5 @@
     ./helix.nix
 
     ./niri
-
-    ./mangowm.nix
   ];
 }

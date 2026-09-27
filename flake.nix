@@ -21,6 +21,9 @@
 
     win98se-plymouth.url = "github:nilp0inter/plymouth-theme-win98se-inspired-nixos-theme";
 
+    oniri.url = "github:Antiz96/oniri";
+    oniri.inputs.nixpkgs.follows = "nixpkgs";
+
     niri-git.url = "github:niri-wm/niri";
   };
   outputs = inputs @ {

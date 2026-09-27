@@ -1,11 +1,14 @@
-{pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [
     ./misc.nix
     ./binds.nix
     ./env.nix
     ./layout.nix
     ./rules.nix
-    ./niri-dms.nix
   ];
 
   wayland.windowManager.niri = {
@@ -22,9 +25,7 @@
     xwayland-satellite
     kitty
     nautilus
-    btop
-    kew
     wooz
-    (pkgs.callPackage ./custom_pkgs/oniri.nix {})
+    inputs.oniri.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

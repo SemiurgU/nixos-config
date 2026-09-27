@@ -19,6 +19,7 @@
     ];
     trusted-users = ["root" user.username];
   };
+  nix.extraOptions = "use-xdg-base-directories = true\n";
 
   boot = {
     plymouth = {
@@ -86,6 +87,8 @@
     nix-index.package = inputs.nix-index-database.packages.${pkgs.stdenv.hostPlatform.system}.nix-index-with-small-db;
   };
   services = {
+    scx.enable = true;
+    scx.scheduler = "scx_lavd";
     upower.enable = true;
     power-profiles-daemon.enable = true;
     framework-control.enable = true;

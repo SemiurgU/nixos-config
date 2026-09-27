@@ -31,8 +31,10 @@
         };
 
         git.enable = true;
+        git.octo-nvim.enable = true;
         telescope.enable = true;
         notify.nvim-notify.enable = true;
+
         terminal.toggleterm = {
           enable = true;
           mappings.open = "tt";
@@ -40,10 +42,12 @@
         };
 
         ui = {
+          ui2.enable = true;
           colorful-menu-nvim.enable = true;
           colorizer.enable = true;
           dropbar-nvim.enable = true;
         };
+
         binds.whichKey.enable = true;
         statusline.lualine.enable = true;
 
@@ -51,18 +55,24 @@
           fidget-nvim.enable = true;
           highlight-undo.enable = true;
           rainbow-delimiters.enable = true;
+          hlargs-nvim.enable = true;
         };
+
+        presence.cord-nvim.enable = true;
+
         mini = {
+          ai.enable = true;
           animate.enable = true;
           basics.enable = true;
           clue.enable = true;
+          cmdline.enable = true;
           completion.enable = true;
           cursorword.enable = true;
           icons.enable = true;
           pairs.enable = true;
-          ai.enable = true;
           splitjoin.enable = true;
         };
+
         utility = {
           oil-nvim = {
             enable = true;
@@ -70,9 +80,7 @@
             setupOpts = {
               columns = [
                 "icon"
-                "permissions"
                 "size"
-                "mtime"
               ];
               delete_to_trash = true;
             };
@@ -81,6 +89,7 @@
           direnv.enable = true;
           undotree.enable = true;
           smart-splits.enable = true;
+          auto-indent-nvim.enable = true;
         };
 
         treesitter = {
@@ -107,9 +116,7 @@
           enableExtraDiagnostics = true;
 
           nix.enable = true;
-          nix.lsp.servers = [
-            "nixd"
-          ];
+          nix.lsp.servers = ["nixd"];
 
           markdown.enable = true;
           markdown.extensions.render-markdown-nvim.enable = true;
@@ -117,8 +124,17 @@
           lua.enable = true;
           lua.extraDiagnostics.enable = true;
 
+          typst.enable = true;
+          typst.extensions.typst-preview-nvim.enable = true;
+
           rust.enable = true;
           rust.extensions.crates-nvim.enable = true;
+
+          go.enable = true;
+          go.extensions.gopher-nvim.enable = true;
+
+          html.enable = true;
+          css.enable = true;
         };
 
         theme = {
