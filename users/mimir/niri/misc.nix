@@ -16,6 +16,7 @@
 
       touchpad = {
         tap = [];
+        drag = true;
         natural-scroll = [];
       };
     };

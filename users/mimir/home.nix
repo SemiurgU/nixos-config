@@ -44,19 +44,13 @@
         mpvScripts.sponsorblock
       ];
     };
-    yazi = {
-      enable = true;
-      extraPackages = [pkgs.exiftool];
-    };
+
     lutris.enable = true;
   };
 
   home = {
     packages = with pkgs; [
       qimgv
-      drawy
-      pear-desktop
-      amberol
       piper
       gh
       ripgrep
@@ -65,9 +59,8 @@
       proton-vpn
       lazygit
       networkmanagerapplet
-      vesktop
-      telegram-desktop
       krita
+      vesktop
       localsend
 
       kdePackages.kimageformats
