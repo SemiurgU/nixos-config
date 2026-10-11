@@ -41,6 +41,7 @@ in {
     "Mod+Alt+B" = dmsKey "Toggle Bar" ["bar" "toggle" "index" "0"];
     "Mod+P" = dmsKey "Cycle Power Profile" ["powerprofile" "toggle"];
     "Mod+Alt+T" = dmsKey "Show Process List" ["processlist" "toggle"];
+    "Mod+Y" = dmsKey "Wallpaper Carousel" ["wallpaperCarousel" "toggle"];
     #-----------
     #---Audio---
     "XF86AudioPlay" = mediaKey "Play/Pause Media" ["mpris" "playPause"];

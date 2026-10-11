@@ -54,7 +54,6 @@
       piper
       gh
       ripgrep
-      neovide
       qbittorrent-enhanced
       proton-vpn
       lazygit

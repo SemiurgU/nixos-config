@@ -22,6 +22,23 @@
           pkgs.fd
         ];
 
+        extraPlugins = {
+          vimwiki = {
+            package = pkgs.vimPlugins.vimwiki;
+          };
+        };
+
+        globals = {
+          vimwiki_list = [
+            {
+              path = "~/Projects/wiki/";
+              syntax = "markdown";
+              ext = ".md";
+            }
+          ];
+          vimwiki_global_ext = 0;
+        };
+
         options = {
           tabstop = 2;
           shiftwidth = 0;
@@ -57,8 +74,6 @@
           rainbow-delimiters.enable = true;
           hlargs-nvim.enable = true;
         };
-
-        presence.cord-nvim.enable = true;
 
         mini = {
           ai.enable = true;
@@ -119,6 +134,8 @@
           nix.lsp.servers = ["nixd"];
 
           markdown.enable = true;
+          markdown.lsp.servers = ["markdown-oxide"];
+          markdown.format.type = ["prettier"];
           markdown.extensions.render-markdown-nvim.enable = true;
 
           lua.enable = true;
@@ -135,13 +152,15 @@
 
           html.enable = true;
           css.enable = true;
+
+          python.enable = true;
         };
 
         theme = {
           enable = true;
           name = "everforest";
           style = "hard";
-          transparent = true;
+          transparent = false;
         };
         keymaps = [
           {

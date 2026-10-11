@@ -42,6 +42,23 @@
           }
         ];
       }
+      {
+        window-rule._children = [
+          {match._props.app-id = "^org.kde.kdeconnect.daemon$";}
+          {open-floating = true;}
+          {open-fullscreen = false;}
+          {open-focused = true;}
+          {default-column-width._children = [{proportion = 1.0;}];}
+          {default-window-height._children = [{proportion = 1.0;}];}
+          {
+            default-floating-position._props = {
+              x = 0;
+              y = 0;
+              relative-to = "top-left";
+            };
+          }
+        ];
+      }
     ];
   };
 }
