@@ -20,16 +20,15 @@
     ];
   };
 
-  xdg.mime.defaultApplications = {
-    "video/x-matroska" = "mpv.desktop";
-    "video/matroska" = "mpv.desktop";
-    "video/mp4" = "mpv.desktop";
-    "video/webm" = "mpv.desktop";
-    "video/x-msvideo" = "mpv.desktop";
-    "video/quicktime" = "mpv.desktop";
-    "video/mpeg" = "mpv.desktop";
-    "video/ogg" = "mpv.desktop";
+  xdg.mimeApps.enable = true;
+  xdg.mimeApps.defaultApplications = {
+    "video/x-matroska" = ["mpv.desktop"];
+    "video/matroska" = ["mpv.desktop"];
+    "video/mp4" = ["mpv.desktop"];
+    "video/webm" = ["mpv.desktop"];
+    "video/x-msvideo" = ["mpv.desktop"];
+    "video/quicktime" = ["mpv.desktop"];
+    "video/mpeg" = ["mpv.desktop"];
+    "video/ogg" = ["mpv.desktop"];
   };
-
-  home.packages = [pkgs.mpv];
 }

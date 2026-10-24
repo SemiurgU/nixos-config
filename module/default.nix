@@ -7,6 +7,7 @@
   imports = [
     inputs.nvf.nixosModules.default
     ./nvf.nix
+    ./mullvad.nix
     ./dms.nix
     ./steam.nix
   ];
