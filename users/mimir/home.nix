@@ -58,10 +58,7 @@
       proton-vpn
       lazygit
       networkmanagerapplet
-      krita
-      vesktop
-      localsend
-
+      ffmpegthumbnailer
       kdePackages.kimageformats
     ];
 

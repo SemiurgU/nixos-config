@@ -102,17 +102,20 @@
 
     thermald.enable = true;
 
-    displayManager.dms-greeter = {
-      enable = true;
-      compositor = {
-        name = "niri";
+    displayManager = {
+      defaultSession = "niri";
+      autoLogin = {
+        enable = true;
+        user = "mimir";
       };
-
-      configHome = "/home/${user.username}";
-
-      logs = {
-        save = true;
-        path = "/tmp/dms-greeter.log";
+      dms-greeter = {
+        enable = true;
+        compositor.name = "niri";
+        configHome = "/home/${user.username}";
+        logs = {
+          save = true;
+          path = "/tmp/dms-greeter.log";
+        };
       };
     };
 

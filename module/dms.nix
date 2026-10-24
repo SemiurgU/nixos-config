@@ -5,11 +5,6 @@
   programs.dms-shell = {
     enable = true;
     systemd.enable = true;
-    enableAudioWavelength = true;
-    enableCalendarEvents = true;
-    enableDynamicTheming = true;
-    enableVPN = true;
-
     plugins = {
       dankKDEConnect = {
         enable = true;

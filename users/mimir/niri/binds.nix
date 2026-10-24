@@ -175,6 +175,10 @@ in {
       _props.hotkey-overlay-title = "Toggle Floating";
       toggle-window-floating = [];
     };
+    "Mod+T" = {
+      _props.hotkey-overlay-title = "Create Tab";
+      toggle-column-tabbed-display = [];
+    };
     "Mod+G" = {
       _props.hotkey-overlay-title = "Freeze/Unfreeze Focused Window";
       spawn = exec pkgs.wl-freeze ++ ["-a"];
