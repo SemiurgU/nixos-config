@@ -1,8 +1,50 @@
-{pkgs, ...}
+{
+  inputs,
+  pkgs,
+  user,
+  ...
+}
 : {
-  programs.dsearch.enable = true;
-  programs.dsearch.systemd.enable = true;
-  programs.dms-shell = {
+  imports = [
+    inputs.dfiles.nixosModules.default
+  ];
+
+  services = {
+    displayManager = {
+      defaultSession = "niri";
+      autoLogin = {
+        enable = true;
+        user = "${user.username}";
+      };
+      dux-greeter = {
+        enable = true;
+        compositor.name = "niri";
+        configHome = "/home/${user.username}";
+        logs = {
+          save = true;
+          path = "/tmp/dux-greeter.log";
+        };
+      };
+    };
+  };
+
+  programs.dux-search.enable = true;
+  programs.dux-search.systemd.enable = true;
+
+  programs.dux-files = {
+    enable = true;
+    systemd = {
+      enable = true;
+      target = "graphical-session.target";
+      restartIfChanged = true;
+    };
+    portal = {
+      enable = true;
+      preferred = true;
+      desktop = "niri";
+    };
+  };
+  programs.dux-shell = {
     enable = true;
     systemd.enable = true;
     plugins = {

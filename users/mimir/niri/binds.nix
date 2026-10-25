@@ -42,7 +42,10 @@ in {
     "Mod+P" = dmsKey "Cycle Power Profile" ["powerprofile" "toggle"];
     "Mod+Alt+T" = dmsKey "Show Process List" ["processlist" "toggle"];
     "Mod+Y" = dmsKey "Wallpaper Carousel" ["wallpaperCarousel" "toggle"];
-    #-----------
+    "Mod+E" = {
+      _props.hotkey-overlay-title = "Open File Manager";
+      spawn = ["dfiles" "toggle"];
+    }; #-----------
     #---Audio---
     "XF86AudioPlay" = mediaKey "Play/Pause Media" ["mpris" "playPause"];
     "XF86AudioPrev" = mediaKey "Previous Track" ["mpris" "previous"];
@@ -163,10 +166,7 @@ in {
       _props.hotkey-overlay-title = "Open Terminal";
       spawn = exec pkgs.kitty;
     };
-    "Mod+E" = {
-      _props.hotkey-overlay-title = "Open File Manager";
-      spawn = exec pkgs.nautilus;
-    };
+
     "Mod+Z" = {
       _props.hotkey-overlay-title = "Zoom (Mouse Tracking)";
       spawn = exec pkgs.wooz ++ ["--mouse-track"];

@@ -19,6 +19,9 @@
     quickshell.url = "github:quickshell-mirror/quickshell";
     quickshell.inputs.nixpkgs.follows = "nixpkgs";
 
+    dfiles.url = "github:duxlabs-dev/dux-files";
+    dfiles.inputs.nixpkgs.follows = "nixpkgs";
+
     win98se-plymouth.url = "github:nilp0inter/plymouth-theme-win98se-inspired-nixos-theme";
 
     oniri.url = "github:Antiz96/oniri";

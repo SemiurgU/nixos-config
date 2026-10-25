@@ -30,7 +30,6 @@
     consoleLogLevel = 3;
     initrd = {
       kernelModules = ["i915"];
-      verbose = false;
     };
 
     loader.timeout = 0;
@@ -76,10 +75,7 @@
   programs = {
     appimage.enable = true;
     appimage.binfmt = true;
-    niri = {
-      enable = true;
-      package = inputs.niri-git.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    };
+    niri.enable = true;
     firefox.enable = true;
     virt-manager.enable = true;
     kdeconnect.enable = true;
@@ -101,23 +97,6 @@
     };
 
     thermald.enable = true;
-
-    displayManager = {
-      defaultSession = "niri";
-      autoLogin = {
-        enable = true;
-        user = "mimir";
-      };
-      dms-greeter = {
-        enable = true;
-        compositor.name = "niri";
-        configHome = "/home/${user.username}";
-        logs = {
-          save = true;
-          path = "/tmp/dms-greeter.log";
-        };
-      };
-    };
 
     gvfs.enable = true;
 
