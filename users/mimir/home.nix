@@ -24,11 +24,12 @@
       include dank-theme.conf
         ";
     };
-
+    zathura.enable = true;
     lutris.enable = true;
   };
 
   home = {
+    preferXdgDirectories = true;
     packages = with pkgs; [
       qimgv
       piper
@@ -55,6 +56,7 @@
       _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java";
       PARALLEL_HOME = "$XDG_CONFIG_HOME/parallel";
       PYTHON_HISTORY = "$XDG_STATE_HOME/python_history";
+      WINEPREFIX = "$XDG_DATA_HOME/wine";
     };
 
     stateVersion = "25.11";

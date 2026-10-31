@@ -1,42 +1,5 @@
 {
   "nodes": {
-    "dank-qml-common": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1792829559,
-        "narHash": "sha256-8J9RuGpmYCFRcpLlRQunqL0FqjsNSzlsK/QFZV2hm1A=",
-        "owner": "duxlabs-dev",
-        "repo": "dux-qml-common",
-        "rev": "bb917ea0718892c875ca0955939f63b31dc64e1e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "duxlabs-dev",
-        "repo": "dux-qml-common",
-        "type": "github"
-      }
-    },
-    "dfiles": {
-      "inputs": {
-        "dank-qml-common": "dank-qml-common",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1792831670,
-        "narHash": "sha256-yqYf1mayqqSgGgHXDaWcN4P/xs8TcuV3QuLeQpTy8Ww=",
-        "owner": "duxlabs-dev",
-        "repo": "dux-files",
-        "rev": "5908e136ee1516f2909be9a4681da29ad569af39",
-        "type": "github"
-      },
-      "original": {
-        "owner": "duxlabs-dev",
-        "repo": "dux-files",
-        "type": "github"
-      }
-    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -54,6 +17,26 @@
       "original": {
         "owner": "nix-community",
         "repo": "disko",
+        "type": "github"
+      }
+    },
+    "dms-plugin-registry": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792895078,
+        "narHash": "sha256-GInOfCKf01qodyr5Ea4/T/UN40qwRzQuDdAGpDsvJKo=",
+        "owner": "duxlabs-dev",
+        "repo": "dux-plugin-registry",
+        "rev": "51669fbf1b1dd6f623ba226df69984fe53037d22",
+        "type": "github"
+      },
+      "original": {
+        "owner": "duxlabs-dev",
+        "repo": "dux-plugin-registry",
         "type": "github"
       }
     },
@@ -127,24 +110,6 @@
         "type": "github"
       }
     },
-    "niri-git": {
-      "inputs": {
-        "nixpkgs": "nixpkgs_2"
-      },
-      "locked": {
-        "lastModified": 1792646861,
-        "narHash": "sha256-/GofDG+UT+XPeHWZ/OKNnAWLUCFCWQPDSwsnmHbG+3Q=",
-        "owner": "niri-wm",
-        "repo": "niri",
-        "rev": "e19df12cf81ffe805609fee497da1a097066ad2f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "niri-wm",
-        "repo": "niri",
-        "type": "github"
-      }
-    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -180,22 +145,6 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1785110946,
-        "narHash": "sha256-WWuWxmXKzGZWryswWlijP3Mjp6aGy4Ngmeil5nGMMjk=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "d3498f786f97ac0bded21b34bae0bf3809b45aa3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_3": {
-      "locked": {
         "lastModified": 1792773339,
         "narHash": "sha256-rZLrzrC6i+jnTAlvPZHogKDulY7WWDEv9hJeHieO7Zw=",
         "owner": "NixOS",
@@ -210,7 +159,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_4": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1792773339,
         "narHash": "sha256-rZLrzrC6i+jnTAlvPZHogKDulY7WWDEv9hJeHieO7Zw=",
@@ -268,44 +217,22 @@
         "type": "github"
       }
     },
-    "quickshell": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1792651682,
-        "narHash": "sha256-TiCGqLMpNIy7FERewgfKVluPsLVF96uc6x6xwZnMjdQ=",
-        "owner": "quickshell-mirror",
-        "repo": "quickshell",
-        "rev": "9b0f339b19057f4731bf3b48293307d7ef241671",
-        "type": "github"
-      },
-      "original": {
-        "owner": "quickshell-mirror",
-        "repo": "quickshell",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
-        "dfiles": "dfiles",
         "disko": "disko",
+        "dms-plugin-registry": "dms-plugin-registry",
         "hardware": "hardware",
         "home-manager": "home-manager",
-        "niri-git": "niri-git",
         "nix-index-database": "nix-index-database",
-        "nixpkgs": "nixpkgs_3",
+        "nixpkgs": "nixpkgs_2",
         "nvf": "nvf",
         "oniri": "oniri",
-        "quickshell": "quickshell",
         "win98se-plymouth": "win98se-plymouth"
       }
     },
     "win98se-plymouth": {
       "inputs": {
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1786831690,

@@ -16,18 +16,13 @@
 
     hardware.url = "github:NixOS/nixos-hardware/master";
 
-    quickshell.url = "github:quickshell-mirror/quickshell";
-    quickshell.inputs.nixpkgs.follows = "nixpkgs";
-
-    dfiles.url = "github:duxlabs-dev/dux-files";
-    dfiles.inputs.nixpkgs.follows = "nixpkgs";
+    dms-plugin-registry.url = "github:duxlabs-dev/dux-plugin-registry";
+    dms-plugin-registry.inputs.nixpkgs.follows = "nixpkgs";
 
     win98se-plymouth.url = "github:nilp0inter/plymouth-theme-win98se-inspired-nixos-theme";
 
     oniri.url = "github:Antiz96/oniri";
     oniri.inputs.nixpkgs.follows = "nixpkgs";
-
-    niri-git.url = "github:niri-wm/niri";
   };
   outputs = inputs @ {
     self,

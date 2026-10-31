@@ -55,7 +55,6 @@
     wants = ["plymouth-quit-wait.service"];
   };
 
-  virtualisation.libvirtd.enable = true;
   security.rtkit.enable = true;
   hardware = {
     graphics = {
@@ -128,7 +127,6 @@
   time.timeZone = "Europe/Rome";
 
   environment.systemPackages = [
-    pkgs.qemu
     pkgs.btrfs-assistant
   ];
 
